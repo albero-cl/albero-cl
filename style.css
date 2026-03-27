@@ -1,0 +1,504 @@
+/* 
+  Ensemble Albero Main theme
+*/
+
+html {
+    scrollbar-gutter: stable;
+    /* スクロールバーが表示されてもコンテンツが横にずれないように場所を確保しておく */
+}
+
+:root {
+    /* よく使う色やフォントを「変数（共通のなまえ）」として登録しておく場所です */
+
+    /* Colors（色） */
+    --color-bg: #fdfaf5;
+    /* Cream background（背景用のクリーム色） */
+    --color-primary: #556b2f;
+    /* Olive Green（メインカラーのオリーブグリーン） */
+    --color-text: #3e2723;
+    /* Dark Brown（文字用のこげ茶色） */
+    --color-accent: #d4a373;
+    /* Pink（文字用のピンク） */
+    --color-pink: #e27575e4;
+    /* Warm wood tone（アクセント用の温かい木の色） */
+    --color-border: rgba(62, 39, 35, 0.1);
+    /* 枠線用の半透明な茶色 */
+
+    /* Typography（文字のスタイル） */
+    --font-family: "Kaisei Opti", serif;
+    /* 基本のフォントを解星オプティに指定 */
+    --max-width: 900px;
+    /* コンテンツが広がりすぎないように最大幅を制限 */
+}
+
+/* Reset（ブラウザが最初から持っている余白などの設定をリセット（ゼロにする）します） */
+* {
+    box-sizing: border-box;
+    /* 要素の幅や高さに、内側の余白（padding）や枠線（border）を含める設定 */
+    margin: 0;
+    /* 外側の余白をゼロに */
+    padding: 0;
+    /* 内側の余白をゼロに */
+}
+
+/* bodyタグ（画面全体）に対する基本設定 */
+body {
+    background-color: var(--color-bg);
+    /* 背景色を上で決めたクリーム色に */
+    color: var(--color-text);
+    /* 文字色を上で決めたこげ茶色に */
+    font-family: var(--font-family);
+    /* フォントを上で決めた解星オプティに */
+    line-height: 1.6;
+    /* 行と行の間の隙間（行間）を少し広くして読みやすく */
+    overflow-x: hidden;
+    /* 画面の横幅をはみ出した部分は隠す（横スクロールバーを出さない） */
+}
+
+/* 段落に対する基本設定 */
+p {
+    margin-bottom: 1rem;
+    /* 段落の下に余白を設けて、次の段落と離す */
+}
+
+/* 画像に対する基本設定 */
+img {
+    max-width: 100%;
+    /* 画像が親要素（はこ）の幅を越えてはみ出さないようにする */
+    height: auto;
+    /* 幅に合わせて高さを自動調整（画像の縦横比を崩さない） */
+    display: block;
+    /* 画像の下にできる不要な謎の隙間を消すための設定 */
+}
+
+/* iframeに対する基本設定（レスポンシブ対応） */
+iframe {
+    max-width: 100%;
+}
+
+/* --- Layout --- */
+
+/* サイトの中身を中央に寄せて、いい感じの幅にするための共通クラス */
+.container {
+    width: 90%;
+    /* 画面幅の90%を占めるように（スマホで見ても左右に少し隙間ができる） */
+    max-width: var(--max-width);
+    /* ただし、最大幅（900px）以上には広がらないように制限 */
+    margin: 0 auto;
+    /* 左右の余白を「auto（自動）」にして、要素を画面のど真ん中に配置（センタリング） */
+}
+
+/* 1. Top Image（一番上の大きな画像エリア） */
+.hero {
+    background-image: url(imgs/common/top.png);
+    /* 背景に画像を設定 */
+    background-size: cover;
+    /* 画像がエリア全体を覆い尽くすように引き伸ばしたり切り取ったりする */
+    background-position: center;
+    /* 画像の中心がエリアの中心にくるように位置を合わせる */
+    background-repeat: no-repeat;
+    /* 画像を繰り返し表示しない（1枚だけ表示） */
+    position: relative;
+    /* 中にある要素を絶対配置するための基準点とする */
+    display: flex;
+    /* 中身（文字など）を柔軟に配置できるフレックスボックスにする */
+    align-items: center;
+    /* 中身を上下の中央に配置 */
+    justify-content: center;
+    /* 中身を左右の中央に配置 */
+    color: var(--color-text);
+    /* 文字色を少し透明な白に */
+    min-height: 25vh;
+    /* エリアの最低限の高さを、画面の高さの25%にする */
+    --h1-font-size: clamp(2rem, 5vw, 3.5rem);
+    /* h1のフォントサイズを変数として定義（親要素で定義することで子要素すべてで使えるようにする） */
+
+}
+
+/* ヒーローコンテンツの箱（背景をぼかす） */
+.hero-content {
+    background-color: rgba(253, 250, 245, 0.05);
+    /* 非常に薄い背景色 */
+    backdrop-filter: blur(2px);
+    /* 背後の画像をぼかす */
+    -webkit-backdrop-filter: blur(2px);
+    /* Safari 対策 */
+    padding: 1rem 4rem;
+    border-radius: 20px;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* わずかに白い枠線（グラスモーフィズム風） */
+}
+
+/* トップ画像の上の大きな見出し（Ensemble Albero） */
+.hero h1 {
+    font-size: var(--h1-font-size);
+    /* 文字の大きさを、親要素で定義した変数から取得 */
+    color: rgba(253, 250, 245, 0.9);
+    /* 文字色を少し透明な白に */
+    letter-spacing: 0.1em;
+    /* 文字と文字の間の隙間（字送り）を少し広げる */
+    -webkit-text-stroke: 0.5px var(--color-text);
+    /* 文字の縁（ふち）に少しだけ色をつける（白文字を見やすくするため） */
+    line-height: 1.2;
+    /* ヒーローエリアの見出しは行間を詰める */
+}
+
+/* サブタイトル用の装飾 */
+.subtitle {
+    font-size: calc(var(--h1-font-size) * 0.5);
+    /* h1のサイズ（--h1-font-size）を計算式(calc)で 0.5倍 にする */
+    color: rgba(253, 250, 245, 0.9);
+    /* 文字色を少し透明な白に */
+    -webkit-text-stroke: 0.5px var(--color-text);
+    /* 文字の縁（ふち）に少しだけ色をつける（白文字を見やすくするため） */
+    letter-spacing: 0.05em;
+    /* 文字の隙間を広げる場合 */
+    font-weight: 600;
+    /* 文字を太字にする */
+    margin-bottom: 0;
+    /* ヒーローエリアの段落は下の余白をなくす */
+    line-height: 1.2;
+    /* ヒーローエリアのサブタイトルは行間を詰める */
+}
+
+/* 2. Menu（ナビゲーションメニュー） */
+nav {
+    background-color: #fff;
+    /* 背景を白色に */
+    border-top: 4px solid var(--color-primary);
+    /* 上にオリーブグリーンの太い線（4px）を引く */
+    border-bottom: 1px solid var(--color-border);
+    /* 下に薄い茶色の細い線（1px）を引く */
+    position: sticky;
+    /* 画面をスクロールしても... */
+    top: 0;
+    /* 画面の「上（top:0）」に張り付いて（追従して）表示させ続ける */
+    z-index: 100;
+    /* 他の要素より「上（手前）」に重なって表示されるようにする（100は適当な大きな数字） */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    /* メニューの下にうっすらと影をつけて、浮いているように見せる */
+}
+
+/* メニューのリスト全体（横並びにする） */
+.nav-list {
+    display: flex;
+    /* リスト項目を横に並べる */
+    justify-content: center;
+    /* 横並びにした項目全体を中央に寄せる */
+    list-style: none;
+    /* リストの先頭につく「・（黒丸）」を消す */
+    gap: 3rem;
+    /* 項目と項目の間に広めの隙間（3rem）をあける */
+    padding: 1.2rem 0;
+    /* リストの上下に余白（1.2rem）をあける */
+}
+
+/* メニューのリンク文字（<a>タグ）の基本設定 */
+.nav-list li a {
+    text-decoration: none;
+    /* リンクの下線を消す */
+    color: var(--color-text);
+    /* 文字色をこげ茶色に */
+    font-weight: 700;
+    /* 文字を太字にする */
+    font-size: 1.1rem;
+    /* 文字を少し大きめに（1.1rem） */
+    padding: 0.5rem 0;
+    /* リンク文字の上下に少し余白を設ける（クリックしやすくするため） */
+    transition: color 0.3s;
+    /* 文字色が変わるときに、0.3秒かけてフワッと変化させる */
+}
+
+/* マウスカーソルを乗せたとき（ホバー時）の色変化 */
+.nav-list li a:hover {
+    color: var(--color-pink);
+    /* マウスを乗せたら文字色をピンクにする */
+}
+
+/* その他のリンク文字（<a>タグ）の基本設定 */
+.container a {
+    text-decoration: none;
+    /* リンクの下線を消す */
+    color: var(--color-text);
+    /* 文字色をこげ茶色に */
+    font-weight: 700;
+    /* 文字を太字にする */
+    padding: 0.5rem 0;
+    /* リンク文字の上下に少し余白を設ける（クリックしやすくするため） */
+    transition: color 0.3s;
+    /* 文字色が変わるときに、0.3秒かけてフワッと変化させる */
+}
+
+/* マウスカーソルを乗せたとき（ホバー時）の色変化 */
+.container a:hover {
+    color: var(--color-pink);
+    /* マウスを乗せたら文字色をピンクにする */
+}
+
+/* Content Sections（各コンテンツエリアの基本設定） */
+section {
+    padding: 5rem 0;
+    /* 各セクション（楽団紹介など）の上下にたっぷり（5rem）余白をあける */
+}
+
+/* セクションの見出し（h2: 楽団紹介、演奏活動 など）の設定 */
+h2 {
+    text-align: center;
+    /* 文字を中央揃えに */
+    font-size: 2rem;
+    /* 文字サイズを大きく（2rem） */
+    margin-bottom: 3rem;
+    /* 見出しの下に大きな隙間（3rem）をあけて本文と離す */
+    position: relative;
+    /* ロゴ画像をつけるための基準点とする */
+    padding-bottom: 8rem;
+    /* 見出し自体の下に少し余白（ロゴ画像用の場所）をあける */
+}
+
+/* セクション見出しの下につくロゴ画像の装飾 */
+h2::after {
+    content: url('imgs/common/logotokas.png');
+    /* ロゴ追加 */
+    position: absolute;
+    /* 見出し（h2）を基準にして絶対配置 */
+    bottom: -1em;
+    /* 見出しの少し下（-5rem）に配置 */
+    left: 50%;
+    /* 左から50%の位置（ほぼ真ん中）に配置 */
+    transform: translateX(-50%);
+    /* 自分の幅の半分だけ左に戻す（これで完璧なド真ん中になる） */
+}
+
+/* h4の装飾 */
+h4 {
+    font-size: 1rem;
+    /* 文字サイズを1rem指定 */
+    margin-bottom: 1.1rem;
+    /* 見出しの下に隙間（1.1rem）をあけて本文と離す */
+}
+
+/* 3. SNS Feed（SNS埋め込みエリア） */
+/* SNSを横並びにするための親枠 */
+.sns-section {
+    display: flex;
+    /* 中にあるSNSアイテムを横並びにする */
+    gap: 3rem;
+    /* InstagramとFacebookの間に広い隙間（3rem）をあける */
+    margin-top: 2rem;
+    /* 上の要素からの少し離す */
+}
+
+/* 各SNSの箱（InstagramとFacebookそれぞれ） */
+.sns-item {
+    flex: 1;
+    /* 2つの箱が同じ幅（1:1）になるようにする */
+    background: white;
+    /* 箱の背景を白色に */
+    border-radius: 15px;
+    /* 箱の角を丸くする（15px） */
+    box-shadow: 0 10px 30px rgba(62, 39, 35, 0.05);
+    /* 箱にふわっとした影をつけて浮き上がらせる */
+    overflow: hidden;
+    /* 箱からはみ出した中身（画像など）は切り取って隠す */
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    /* ごく薄いグレーの枠線をつける */
+    min-height: 500px;
+    /* 箱の最低限の高さを500pxにする */
+    padding: 2rem;
+    /* 箱の内側にぐるっと余白（2rem）をとる */
+    text-align: center;
+    /* 箱の中の文字をすべて中央揃えに */
+    display: flex;
+    /* 中身を縦に並べる準備 */
+    flex-direction: column;
+    /* 中身を上から下へ（縦方向）並べる */
+}
+
+/* SNSの箱の中の見出し（h3） */
+.sns-item h3 {
+    margin-bottom: 1.5rem;
+    /* 見出しの下に余白をあける */
+    color: var(--color-primary);
+    /* 見出しの色をオリーブグリーンに */
+    font-size: 1.2rem;
+    /* 文字サイズを指定 */
+    border-bottom: 1px dashed var(--color-accent);
+    /* 見出しの下に、点線（dashed）の線を引く */
+    padding-bottom: 0.5rem;
+    /* 線と見出し文字との間に少し余白をあける */
+}
+
+/* Facebookの表示調整 */
+.facebook-content {
+    background: #f9f9f9;
+    flex: 1;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed #ddd;
+    width: 100%;
+    overflow: hidden;
+    /* 万が一のはみ出しを防止 */
+}
+
+.fb-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* SDK版の横幅調整（親の幅に合わせるための最小限の指定） */
+.fb-page,
+.fb-page span {
+    width: 100% !important;
+}
+
+/* iframe自体はSDKに計算を任せるため、強制的な幅指定を外す */
+
+
+
+/* 4. Footer（ページの一番下・フッターエリア） */
+footer {
+    background-color: #f0f0e8;
+    /* フッターの背景色を少し暗めの色（グレーっぽい色）に */
+    border-top: 1px solid var(--color-border);
+    /* フッターの一番上に薄い線の区切りを入れる */
+    padding: 5rem 0 3rem;
+    /* 内側の余白（上5rem、左右0、下3rem） */
+    color: var(--color-text);
+    /* 文字色をこげ茶色に */
+}
+
+/* フッター内のナビゲーションエリア */
+.footer-nav {
+    margin-bottom: 3rem;
+    /* その下のSNSアイコンとの間に余白をあける */
+}
+
+/* フッター内のナビゲーションリスト（上のメニューとは少し違う設定） */
+.footer-nav .nav-list {
+    border: none;
+    /* メニューの周りの枠線を消す（上部のナビゲーションのスタイルを打ち消している） */
+    padding: 0;
+    /* 余白をなくす */
+}
+
+/* フッターのSNSアイコン一覧エリア（横並びに） */
+.sns-icons {
+    display: flex;
+    /* アイコンを横に並べる */
+    justify-content: center;
+    /* 画面の中央に配置 */
+    gap: 2rem;
+    /* アイコンとアイコンの間に隙間をあける */
+    margin-bottom: 3rem;
+    /* 下のコピーライト表記との間に余白をあける */
+}
+
+/* SNSアイコンのリンク（<a>タグ）全体の設定 */
+.sns-icons a {
+    color: var(--color-primary);
+    /* 文字色をオリーブグリーンに */
+    text-decoration: none;
+    /* リンクの下線を消す */
+    font-weight: bold;
+    /* 文字を太字にする */
+    font-size: 0.9rem;
+    /* 文字サイズ指定 */
+    display: flex;
+    /* 丸いアイコンと文字を縦に並べる準備 */
+    flex-direction: column;
+    /* 縦方向に並べる（上:丸いアイコン、下:テキスト） */
+    align-items: center;
+    /* 縦に並べたものを中央揃えに */
+    gap: 0.5rem;
+    /* 丸いアイコンとテキストの間に少し隙間をあける */
+}
+
+/* SNSアイコンの丸い部分（<span>要素）の形作り */
+.sns-icons span {
+    width: 50px;
+    /* 幅50px */
+    height: 50px;
+    /* 高さ50px */
+    background: #fff;
+    /* 背景を白色に */
+    border-radius: 50%;
+    /* 角丸を50%にする＝完全な円（正円）になる */
+    display: flex;
+    /* 中の文字（IGやFB）を中央に配置する準備 */
+    align-items: center;
+    /* 上下の中央に */
+    justify-content: center;
+    /* 左右の中央に */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    /* 丸いアイコンに薄い影をつけてぷっくりさせる */
+    transition: transform 0.3s;
+    /* 形が変わる（ホバーで浮き上がる）時にアニメーションさせる */
+}
+
+/* マウスを乗せた時（ホバー時）のSNSアイコンの動きと色 */
+.sns-icons a:hover span {
+    transform: translateY(-5px);
+    /* Y軸（縦方向）にマイナス5px移動させる ＝ つまり上に5px浮き上がる！ */
+    background-color: var(--color-primary);
+    /* マウスを乗せたら背景色をオリーブグリーンに */
+    color: #fff;
+    /* マウスを乗せたら文字色を白に反転させる */
+}
+
+/* コピーライト（著作権表記） */
+.copyright {
+    opacity: 0.5;
+    /* 要素全体を半透明（50%）にして、少し目立たなくする */
+    font-size: 0.75rem;
+    /* 文字を小さく */
+    text-align: center;
+    /* 中央揃え */
+}
+
+/* --- Responsive (Fixed 2 States) --- */
+/* レスポンシブ対応：画面幅が狭い時（スマホなど）用の設定をここにまとめます */
+
+/* 画面幅が「768px 以下」の時だけ適用される特別なルール（メディアクエリ） */
+@media (max-width: 768px) {
+
+    /* メニューリスト（スマホ版） */
+    .nav-list {
+        flex-wrap: wrap;
+        /* 画面に収まらない場合は、横並びを諦めて折り返す（改行する）ようにする */
+        gap: 1.5rem;
+        /* 項目間の隙間をPC版より少し狭くする */
+        padding: 1rem;
+        /* 内側の余白も少し狭くする */
+    }
+
+    /* メニューの文字（スマホ版） */
+    .nav-list li {
+        font-size: 0.9rem;
+        /* 画面が小さいので、文字サイズも少し小さくして収まりやすくする */
+    }
+
+    /* SNSエリア（スマホ版） */
+    .sns-section {
+        flex-direction: column;
+        /* PC版では横並びだったInstagramとFacebookを、縦並びに変更する */
+        gap: 2rem;
+        /* 縦に並べた時の上下の隙間を指定 */
+    }
+
+    /* 各SNSの箱（スマホ版） */
+    .sns-item {
+        min-height: 400px;
+        /* スマホ画面に合わせて、箱の最低限の高さを少し低く（500px→400px）調整する */
+    }
+
+    /* トップ画像の大きな見出し（スマホ版） */
+    .hero h1 {
+        font-size: 2.2rem;
+        /* 画面幅が狭い時は、文字が大きすぎるとはみ出してしまうので、少し小さめのサイズに固定する */
+    }
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ensemble Albero</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="imgs/common/favicon.ico">
+</head>
+
+<body>
+    <!-- Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v21.0"></script>
+
+
+    <!-- 1. トップ画像 -->
+    <header class="hero" id="top">
+        <div class="hero-content">
+            <h1>Ensemble Albero</h1>
+            <p class="subtitle">クラリネットアンサンブル</p>
+        </div>
+    </header>
+
+    <!-- 2. メニュー -->
+    <nav>
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="index.html">TOP</a></li>
+                <li><a href="aboutus.html">楽団紹介</a></li>
+                <li><a href="concert.html">演奏活動</a></li>
+                <li><a href="#sns">公式SNS</a></li>
+                <li><a href="contact.html">お問合わせ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- 次回演奏セクション -->
+        <section id="next-concert" class="container">
+            <h2>次回演奏はこちら</h2>
+            <div
+                style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center; background: #fff; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
+                <div style="flex: 1; min-width: 300px;">
+                    <img src="imgs/concert/20260411a.jpg" alt="2026年4月11日ポスター"
+                        style="border-radius: 10px; width: 100%; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="color: var(--color-primary); font-size: 1.8rem; margin-bottom: 1.5rem;">Joyful
+                        Clarinets!<br>
+                        Ensemble Albero 1st Concert</h3>
+                    <table style="width: 100%; border-collapse: collapse; line-height: 2;">
+                        <tr>
+                            <th style="text-align: left; width: 80px; vertical-align: top;">日時</th>
+                            <td>2026年4月11日(土) <br>開場 13:30 / 開演 14:00</td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: left; vertical-align: top;">会場</th>
+                            <td>東海市芸術劇場 多目的ホール<br>
+                                アクセス：名鉄太田川駅西口より徒歩約5分</td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: left; vertical-align: top;">入場料</th>
+                            <td>無料（全席自由）</td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: left; vertical-align: top;">曲目</th>
+                            <td>ジョイフルクラリネッツ／真島俊夫<br>
+                                さくらのうた／福田洋介<br>
+                                歌劇「セヴィリアの理髪師」序曲／ロッシーニ<br>
+                                ガラスの海と都市の情景／Micina<br>
+                                リベルタンゴ／ピアソラ …ほか
+                            </td>
+                        </tr>
+                    </table>
+                    <p style="margin-top: 2rem; font-size: 0.9rem; color: #666;">※整理券の配布はございません。お気軽にお越しください。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. インスタグラム・Facebookフィード -->
+        <section class="container" id="sns">
+            <h2>Social Media</h2>
+            <div class="sns-section">
+                <div class="sns-item" id="instagram-feed">
+                    <h3>Instagram</h3>
+                    <div
+                        style="background: #f9f9f9; flex: 1; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px dashed #ddd;">
+                        <p style="color: #999;">Instagram埋め込みエリア</p>
+                        <p style="font-size: 0.8rem; color: #bbb;">(ここにスクリプトを設置)</p>
+                    </div>
+                </div>
+                <div class="sns-item" id="facebook-feed">
+                    <h3>Facebook</h3>
+                    <div class="facebook-content">
+                        <div class="fb-container">
+                            <div class="fb-page" data-href="https://www.facebook.com/profile.php?id=61583751411038"
+                                data-tabs="timeline" data-width="500" data-height="500" data-small-header="true"
+                                data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false">
+                                <blockquote cite="https://www.facebook.com/profile.php?id=61583751411038"
+                                    class="fb-xfbml-parse-ignore">
+                                    <a href="https://www.facebook.com/profile.php?id=61583751411038">Ensemble Albero</a>
+                                </blockquote>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 4. メニューとSNSアイコン（フッター） -->
+    <footer>
+        <div class="container">
+            <div class="footer-nav">
+                <ul class="nav-list">
+                    <li><a href="#top">TOP</a></li>
+                    <li><a href="aboutus.html">楽団紹介</a></li>
+                    <li><a href="concert.html">演奏活動</a></li>
+                    <li><a href="index.html#sns">公式SNS</a></li>
+                    <li><a href="contact.html">お問合わせ</a></li>
+                </ul>
+            </div>
+
+            <div class="sns-icons">
+                <a href="https://www.instagram.com/ensemble_albero/?hl=ja"><span>IG</span>Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=61583751411038"><span>FB</span>Facebook</a>
+            </div>
+
+            <p class="copyright">
+                &copy; 2025 Ensemble Albero. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Facebookプラグインのレスポンシブ対応スクリプト -->
+    <script>
+        let timeout = null;
+        window.addEventListener('resize', () => {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                const fbContainer = document.querySelector('.fb-container');
+                if (fbContainer && window.FB) {
+                    // 幅に合わせて再描画（パース）を実行
+                    FB.XFBML.parse(fbContainer);
+                }
+            }, 500); // 0.5秒のディレイ（負荷軽減のため）
+        });
+    </script>
+</body>
+
+</html>
